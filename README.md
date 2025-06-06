@@ -111,3 +111,6 @@ PokerGame/
 ---
 
 **这是一个功能完整、技术先进的iOS德州扑克应用，特别适合想要学习和提高扑克技巧的玩家使用。AI分析功能为玩家提供了专业级的游戏指导，是这个项目的最大亮点！** 🚀 
+
+## Test Update
+Git workflow is now properly configured! 🎉 
