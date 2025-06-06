@@ -1,0 +1,98 @@
+{
+  "" : {
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGame-master.dia",
+    "emit-module-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGame-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGame-master-emit-module.dia",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGame-master.swiftdeps"
+  },
+  "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/AI/PokerAI.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerAI~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/ContentView.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/Models/Card.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Card~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/Models/GameState.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/GameState~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/Models/Player.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/Player~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/PokerGameApp.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerGameApp~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/Views/AIAnalysisView.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/AIAnalysisView~partial.swiftmodule"
+  },
+  "/Users/bytedance/trae/poker/PokerGame/Views/PokerTableView.swift" : {
+    "const-values" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.swiftconstvalues",
+    "dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.d",
+    "diagnostics" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.dia",
+    "index-unit-output-path" : "/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.o",
+    "llvm-bc" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.bc",
+    "object" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.o",
+    "swift-dependencies" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView.swiftdeps",
+    "swiftmodule" : "/Users/bytedance/trae/poker/DerivedData/Build/Intermediates.noindex/PokerGame.build/Debug-iphonesimulator/PokerGame.build/Objects-normal/arm64/PokerTableView~partial.swiftmodule"
+  }
+}

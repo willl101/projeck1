@@ -149,6 +149,10 @@ class GameState: ObservableObject, Codable {
     @Published var winner: Player?
     @Published var gameLog: [String] = []
     
+    // MARK: - 管理器
+    private let soundManager = SoundManager.shared
+    private let gameConfig = GameConfiguration.shared
+    
     // MARK: - 编码支持
     enum CodingKeys: String, CodingKey {
         case players, communityCards, currentPhase, currentPlayerIndex
@@ -226,7 +230,22 @@ class GameState: ObservableObject, Codable {
     
     // MARK: - 位置管理
     func updatePositions() {
-        guard players.count >= 2 else { return }
+        guard players.count >= 2 else { 
+            dealerIndex = 0
+            smallBlindIndex = 0
+            bigBlindIndex = 0
+            return 
+        }
+        
+        // 确保索引在有效范围内
+        dealerIndex = min(dealerIndex, players.count - 1)
+        smallBlindIndex = (dealerIndex + 1) % players.count
+        bigBlindIndex = (dealerIndex + 2) % players.count
+        
+        // 如果只有2个玩家，大盲注等于庄家
+        if players.count == 2 {
+            bigBlindIndex = dealerIndex
+        }
         
         for (index, player) in players.enumerated() {
             player.position = index
@@ -237,9 +256,8 @@ class GameState: ObservableObject, Codable {
     }
     
     func moveDealer() {
+        guard players.count >= 2 else { return }
         dealerIndex = (dealerIndex + 1) % players.count
-        smallBlindIndex = (dealerIndex + 1) % players.count
-        bigBlindIndex = (dealerIndex + 2) % players.count
         updatePositions()
     }
     
@@ -267,6 +285,7 @@ class GameState: ObservableObject, Codable {
         collectBlinds()
         
         // 设置第一个行动玩家（大盲注后的玩家）
+        guard players.count > 0 else { return }
         currentPlayerIndex = (bigBlindIndex + 1) % players.count
         
         isGameActive = true
@@ -282,10 +301,17 @@ class GameState: ObservableObject, Codable {
             let cards = deck.dealCards(count: 2)
             player.dealHoleCards(cards)
         }
+        soundManager.playSound(.dealCard)
         addToLog("发放底牌")
     }
     
     func collectBlinds() {
+        guard smallBlindIndex >= 0 && smallBlindIndex < players.count,
+              bigBlindIndex >= 0 && bigBlindIndex < players.count else {
+            addToLog("盲注索引错误，跳过盲注收取")
+            return
+        }
+        
         let smallBlindPlayer = players[smallBlindIndex]
         let bigBlindPlayer = players[bigBlindIndex]
         
@@ -308,6 +334,7 @@ class GameState: ObservableObject, Codable {
         switch action {
         case .fold:
             actionPlayer.fold()
+            soundManager.playSound(.fold)
             addToLog("\(actionPlayer.name) 弃牌")
             
         case .check:
@@ -318,6 +345,7 @@ class GameState: ObservableObject, Codable {
             let callAmount = currentBet - actionPlayer.currentBet
             actionPlayer.call(callAmount)
             pot.addChips(callAmount, from: actionPlayer.id)
+            soundManager.playSound(.call)
             addToLog("\(actionPlayer.name) 跟注 \(callAmount)")
             
         case .raise:
@@ -326,6 +354,7 @@ class GameState: ObservableObject, Codable {
             actionPlayer.raise(to: raiseAmountToAdd)
             pot.addChips(raiseAmountToAdd, from: actionPlayer.id)
             currentBet = raiseAmount
+            soundManager.playSound(.raise)
             addToLog("\(actionPlayer.name) 加注到 \(raiseAmount)")
             
         case .allIn:
@@ -335,6 +364,7 @@ class GameState: ObservableObject, Codable {
             if actionPlayer.totalBetInRound > currentBet {
                 currentBet = actionPlayer.totalBetInRound
             }
+            soundManager.playSound(.allIn)
             addToLog("\(actionPlayer.name) 全押 \(allInAmount)")
         }
         
@@ -349,10 +379,14 @@ class GameState: ObservableObject, Codable {
             return
         }
         
+        guard players.count > 0 else { return }
+        
         // 移动到下一个有效玩家
+        var attempts = 0
         repeat {
             currentPlayerIndex = (currentPlayerIndex + 1) % players.count
-        } while !currentPlayer?.canAct ?? true && activePlayers.count > 1
+            attempts += 1
+        } while !(currentPlayer?.canAct ?? false) && activePlayers.count > 1 && attempts < players.count
         
         // 处理当前玩家行动
         processCurrentPlayerAction()
@@ -417,6 +451,7 @@ class GameState: ObservableObject, Codable {
         communityCards.append(contentsOf: flopCards)
         currentPhase = .flop
         resetBetting()
+        soundManager.playSound(.cardFlip)
         addToLog("发放翻牌: \(flopCards.map { $0.description }.joined(separator: " "))")
         processCurrentPlayerAction()
     }
@@ -426,6 +461,7 @@ class GameState: ObservableObject, Codable {
             communityCards.append(turnCard)
             currentPhase = .turn
             resetBetting()
+            soundManager.playSound(.cardFlip)
             addToLog("发放转牌: \(turnCard.description)")
             processCurrentPlayerAction()
         }
@@ -436,6 +472,7 @@ class GameState: ObservableObject, Codable {
             communityCards.append(riverCard)
             currentPhase = .river
             resetBetting()
+            soundManager.playSound(.cardFlip)
             addToLog("发放河牌: \(riverCard.description)")
             processCurrentPlayerAction()
         }
@@ -457,10 +494,19 @@ class GameState: ObservableObject, Codable {
     
     func resetBetting() {
         currentBet = 0
+        guard players.count > 0 else { return }
+        
         currentPlayerIndex = (dealerIndex + 1) % players.count
         
         for player in players {
             player.resetForNewRound()
+        }
+        
+        // 跳过已经弃牌或出局的玩家
+        var attempts = 0
+        while !(currentPlayer?.canAct ?? false) && activePlayers.count > 1 && attempts < players.count {
+            currentPlayerIndex = (currentPlayerIndex + 1) % players.count
+            attempts += 1
         }
     }
     
@@ -475,14 +521,22 @@ class GameState: ObservableObject, Codable {
             addToLog("\(winner?.name ?? "") 获胜，赢得 \(pot.amount) 筹码")
         } else {
             // 多个玩家，比较手牌
-            let playerEvaluations = activePlayers.map { player in
-                let evaluation = HandEvaluator.evaluateHand(cards: player.holeCards + communityCards)
+            let playerEvaluations: [(player: Player, evaluation: HandEvaluation)] = activePlayers.compactMap { player in
+                let allCards = player.holeCards + communityCards
+                guard allCards.count >= 2 else { return nil }
+                let evaluation = HandEvaluator.evaluateHand(cards: allCards)
                 return (player: player, evaluation: evaluation)
+            }
+            
+            // 确保有可比较的手牌
+            guard !playerEvaluations.isEmpty else {
+                addToLog("无法评估手牌，游戏结束")
+                return
             }
             
             // 找到最强的手牌
             let sortedEvaluations = playerEvaluations.sorted { $0.evaluation > $1.evaluation }
-            let bestEvaluation = sortedEvaluations.first!.evaluation
+            guard let bestEvaluation = sortedEvaluations.first?.evaluation else { return }
             let winners = sortedEvaluations.filter { $0.evaluation == bestEvaluation }
             
             if winners.count == 1 {
@@ -514,7 +568,7 @@ class GameState: ObservableObject, Codable {
     }
     
     var currentPlayer: Player? {
-        guard currentPlayerIndex < players.count else { return nil }
+        guard currentPlayerIndex >= 0 && currentPlayerIndex < players.count else { return nil }
         return players[currentPlayerIndex]
     }
     

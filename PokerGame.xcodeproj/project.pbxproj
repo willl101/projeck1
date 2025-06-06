@@ -17,6 +17,10 @@
 		A1234567890ABCDEF031 /* PokerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF032 /* PokerTableView.swift */; };
 		A1234567890ABCDEF033 /* AIAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF034 /* AIAnalysisView.swift */; };
 		A1234567890ABCDEF035 /* PokerAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF036 /* PokerAI.swift */; };
+		A1234567890ABCDEF041 /* GameStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF042 /* GameStatistics.swift */; };
+		A1234567890ABCDEF043 /* GameSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF044 /* GameSettingsView.swift */; };
+		A1234567890ABCDEF045 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF046 /* SoundManager.swift */; };
+		A1234567890ABCDEF047 /* GameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF048 /* GameConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		A1234567890ABCDEF032 /* PokerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerTableView.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF034 /* AIAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIAnalysisView.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF036 /* PokerAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerAI.swift; sourceTree = "<group>"; };
+		A1234567890ABCDEF042 /* GameStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatistics.swift; sourceTree = "<group>"; };
+		A1234567890ABCDEF044 /* GameSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsView.swift; sourceTree = "<group>"; };
+		A1234567890ABCDEF046 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A1234567890ABCDEF048 /* GameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,9 @@
 				A1234567890ABCDEF026 /* Card.swift */,
 				A1234567890ABCDEF028 /* Player.swift */,
 				A1234567890ABCDEF030 /* GameState.swift */,
+				A1234567890ABCDEF042 /* GameStatistics.swift */,
+				A1234567890ABCDEF046 /* SoundManager.swift */,
+				A1234567890ABCDEF048 /* GameConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -97,6 +108,7 @@
 			children = (
 				A1234567890ABCDEF032 /* PokerTableView.swift */,
 				A1234567890ABCDEF034 /* AIAnalysisView.swift */,
+				A1234567890ABCDEF044 /* GameSettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +199,10 @@
 				A1234567890ABCDEF031 /* PokerTableView.swift in Sources */,
 				A1234567890ABCDEF033 /* AIAnalysisView.swift in Sources */,
 				A1234567890ABCDEF035 /* PokerAI.swift in Sources */,
+				A1234567890ABCDEF041 /* GameStatistics.swift in Sources */,
+				A1234567890ABCDEF043 /* GameSettingsView.swift in Sources */,
+				A1234567890ABCDEF045 /* SoundManager.swift in Sources */,
+				A1234567890ABCDEF047 /* GameConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

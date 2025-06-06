@@ -1,0 +1,176 @@
+{
+  "source": "/Users/bytedance/trae/poker/PokerGame/Views/PokerTableView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "第 %lld 手",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "轮到: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "底池: %lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前下注: %lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "公共牌",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "弃牌",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "看牌",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 175
+        }
+      },
+      {
+        "comment": "",
+        "key": "跟注 %lld",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 181
+        }
+      },
+      {
+        "comment": "",
+        "key": "加注",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 190
+        }
+      },
+      {
+        "comment": "",
+        "key": "全押",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 195
+        }
+      },
+      {
+        "comment": "",
+        "key": "选择加注金额",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 203
+        }
+      },
+      {
+        "comment": "",
+        "key": "加注到 %lld",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 205
+        }
+      },
+      {
+        "comment": "",
+        "key": "加注到 %lld",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "加注到 %lld",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 213
+        }
+      },
+      {
+        "comment": "",
+        "key": "开始新手牌",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 242
+        }
+      },
+      {
+        "comment": "",
+        "key": "🎉 %@ 获胜!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 229
+        }
+      },
+      {
+        "comment": "",
+        "key": "筹码: %lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 267
+        }
+      },
+      {
+        "comment": "",
+        "key": "下注: %lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 272
+        }
+      },
+      {
+        "comment": "",
+        "key": "SB",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 301
+        }
+      },
+      {
+        "comment": "",
+        "key": "BB",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 309
+        }
+      },
+      {
+        "comment": "",
+        "key": "🂠",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 352
+        }
+      }
+    ]
+  },
+  "version": 1
+}

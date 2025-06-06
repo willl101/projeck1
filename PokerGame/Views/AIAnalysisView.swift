@@ -84,11 +84,14 @@ struct AIAnalysisView: View {
                 
                 // 当前手牌类型
                 if !player.holeCards.isEmpty {
-                    let evaluation = HandEvaluator.evaluateHand(cards: player.holeCards + gameState.communityCards)
-                    Text("当前牌型: \(evaluation.rank.name)")
-                        .font(.subheadline)
-                        .foregroundColor(.blue)
-                        .padding(.top, 5)
+                    let allCards = player.holeCards + gameState.communityCards
+                    if allCards.count >= 2 {
+                        let evaluation = HandEvaluator.evaluateHand(cards: allCards)
+                        Text("当前牌型: \(evaluation.rank.name)")
+                            .font(.subheadline)
+                            .foregroundColor(.blue)
+                            .padding(.top, 5)
+                    }
                 }
             }
         }
@@ -280,7 +283,6 @@ struct AIAnalysisView: View {
                     // 分析原因
                     Text(analysis.reasoning)
                         .font(.body)
-                        .foregroundColor(.primary)
                         .multilineTextAlignment(.leading)
                         .padding()
                         .background(Color.gray.opacity(0.1))
@@ -306,7 +308,8 @@ struct AIAnalysisView: View {
             
             if let player = gameState.players.first, !player.holeCards.isEmpty {
                 let allCards = player.holeCards + gameState.communityCards
-                let evaluation = HandEvaluator.evaluateHand(cards: allCards)
+                if allCards.count >= 2 {
+                    let evaluation = HandEvaluator.evaluateHand(cards: allCards)
                 
                 VStack(spacing: 10) {
                     // 当前牌型
@@ -339,7 +342,14 @@ struct AIAnalysisView: View {
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
+                    }
+                } else {
+                    Text("手牌不足")
+                        .foregroundColor(.secondary)
                 }
+            } else {
+                Text("等待发牌...")
+                    .foregroundColor(.secondary)
             }
         }
         .padding()

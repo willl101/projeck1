@@ -182,6 +182,9 @@ class HandEvaluator {
     private static func findStraight(in cards: [Card]) -> [Card]? {
         let uniqueRanks = Array(Set(cards.map { $0.rank })).sorted { $0.sortValue > $1.sortValue }
         
+        // 检查是否有足够的牌形成顺子
+        guard uniqueRanks.count >= 5 else { return nil }
+        
         // 检查A-2-3-4-5顺子
         let wheelRanks: [Rank] = [.ace, .five, .four, .three, .two]
         let wheelCards = wheelRanks.compactMap { rank in
@@ -192,8 +195,14 @@ class HandEvaluator {
         }
         
         // 检查常规顺子
-        for i in 0...(uniqueRanks.count - 5) {
-            let straightRanks = Array(uniqueRanks[i..<(i+5)])
+        let maxIndex = uniqueRanks.count - 5
+        guard maxIndex >= 0 else { return nil }
+        
+        for i in 0...maxIndex {
+            let endIndex = i + 5
+            guard endIndex <= uniqueRanks.count else { continue }
+            
+            let straightRanks = Array(uniqueRanks[i..<endIndex])
             if isConsecutive(ranks: straightRanks) {
                 let straightCards = straightRanks.compactMap { rank in
                     cards.first { $0.rank == rank }
@@ -208,6 +217,8 @@ class HandEvaluator {
     }
     
     private static func isConsecutive(ranks: [Rank]) -> Bool {
+        guard ranks.count >= 2 else { return false }
+        
         for i in 0..<(ranks.count - 1) {
             if ranks[i].sortValue - ranks[i+1].sortValue != 1 {
                 return false
@@ -225,28 +236,47 @@ class WinRateCalculator {
         playerHoleCards: [Card],
         communityCards: [Card],
         opponentCount: Int,
-        iterations: Int = 10000
+        iterations: Int = 5000  // 减少迭代次数以提高性能
     ) -> Double {
         
+        guard !playerHoleCards.isEmpty else { return 0.0 }
+        guard opponentCount > 0 else { return 1.0 }
+        
         var wins = 0
+        var ties = 0
         let usedCards = Set(playerHoleCards + communityCards)
         
-        for _ in 0..<iterations {
+        // 根据已知牌的数量调整迭代次数
+        let adjustedIterations = communityCards.count >= 3 ? iterations / 2 : iterations
+        
+        for _ in 0..<adjustedIterations {
             var deck = createDeck(excluding: usedCards)
             deck.shuffle()
             
             // 完成公共牌
             var fullCommunityCards = communityCards
-            while fullCommunityCards.count < 5 {
-                fullCommunityCards.append(deck.removeFirst())
+            let cardsNeeded = 5 - fullCommunityCards.count
+            for _ in 0..<cardsNeeded {
+                if !deck.isEmpty {
+                    fullCommunityCards.append(deck.removeFirst())
+                }
             }
             
             // 为对手发牌
             var opponentHands: [[Card]] = []
-            for _ in 0..<opponentCount {
-                let opponentCards = [deck.removeFirst(), deck.removeFirst()]
-                opponentHands.append(opponentCards)
+            let maxOpponents = min(opponentCount, deck.count / 2)
+            guard maxOpponents > 0 else { continue }
+            
+            for _ in 0..<maxOpponents {
+                if deck.count >= 2 {
+                    let opponentCards = [deck.removeFirst(), deck.removeFirst()]
+                    opponentHands.append(opponentCards)
+                } else {
+                    break
+                }
             }
+            
+            guard !opponentHands.isEmpty else { continue }
             
             // 评估所有手牌
             let playerEvaluation = HandEvaluator.evaluateHand(cards: playerHoleCards + fullCommunityCards)
@@ -254,14 +284,19 @@ class WinRateCalculator {
                 HandEvaluator.evaluateHand(cards: hand + fullCommunityCards)
             }
             
-            // 检查是否获胜
-            let isWinner = opponentEvaluations.allSatisfy { playerEvaluation > $0 }
-            if isWinner {
+            // 检查是否获胜或平局
+            let betterHands = opponentEvaluations.filter { $0 > playerEvaluation }.count
+            let equalHands = opponentEvaluations.filter { $0 == playerEvaluation }.count
+            
+            if betterHands == 0 && equalHands == 0 {
                 wins += 1
+            } else if betterHands == 0 && equalHands > 0 {
+                ties += 1
             }
         }
         
-        return Double(wins) / Double(iterations)
+        // 平局计算为0.5胜
+        return (Double(wins) + Double(ties) * 0.5) / Double(adjustedIterations)
     }
     
     private static func createDeck(excluding usedCards: Set<Card>) -> [Card] {
@@ -348,26 +383,61 @@ class PokerAI {
         }
         
         let recommendation = getRecommendation(gameState: gameState, playerIndex: playerIndex)
+        let callAmount = gameState.currentBet - aiPlayer.currentBet
+        
+        // 检查特殊情况
+        if callAmount >= aiPlayer.chips {
+            // 如果跟注需要全押，基于胜率决定
+            let winRate = WinRateCalculator.calculateWinRate(
+                playerHoleCards: aiPlayer.holeCards,
+                communityCards: gameState.communityCards,
+                opponentCount: gameState.activePlayers.count - 1
+            )
+            return winRate > 0.4 ? .allIn : .fold
+        }
+        
+        if gameState.currentBet == 0 && recommendation.action == .call {
+            return .check // 没有下注时选择看牌而不是跟注
+        }
         
         // 根据AI难度调整决策
         switch aiPlayer.difficulty {
         case .easy:
             // 简单AI：更保守，降低激进度
             if recommendation.action == .raise && recommendation.confidence < 0.8 {
-                return .call
+                return callAmount == 0 ? .check : .call
+            }
+            if recommendation.action == .call && recommendation.confidence < 0.3 {
+                return .fold
             }
         case .medium:
-            // 中等AI：按推荐执行
-            break
+            // 中等AI：按推荐执行，但加入一些随机性
+            if recommendation.action == .raise && recommendation.confidence < 0.6 && Bool.random() {
+                return callAmount == 0 ? .check : .call
+            }
         case .hard:
             // 困难AI：更激进，适当虚张声势
             if recommendation.action == .call && recommendation.confidence > 0.6 {
                 return .raise
             }
+            if recommendation.action == .fold && recommendation.confidence > 0.2 && Bool.random() {
+                return callAmount == 0 ? .check : .call
+            }
         case .expert:
-            // 专家AI：加入混合策略
-            if Bool.random() && recommendation.confidence > 0.4 {
-                return recommendation.action == .fold ? .call : .raise
+            // 专家AI：加入混合策略和位置考虑
+            let isLatePosition = playerIndex >= gameState.players.count / 2
+            if isLatePosition && recommendation.action == .call && recommendation.confidence > 0.5 {
+                return .raise
+            }
+            if !isLatePosition && recommendation.action == .raise && recommendation.confidence < 0.7 {
+                return callAmount == 0 ? .check : .call
+            }
+            // 25% 概率的虚张声势
+            if recommendation.confidence > 0.3 {
+                let randomValue = Int.random(in: 0..<4)
+                if randomValue == 0 {
+                    return recommendation.action == .fold ? (callAmount == 0 ? .check : .call) : .raise
+                }
             }
         case .none:
             break

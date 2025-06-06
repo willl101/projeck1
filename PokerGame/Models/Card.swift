@@ -118,9 +118,14 @@ class Deck: ObservableObject {
         return cards.popLast()
     }
     
+    func dealCard() -> Card? {
+        return deal()
+    }
+    
     func dealCards(count: Int) -> [Card] {
         var dealtCards: [Card] = []
-        for _ in 0..<min(count, cards.count) {
+        let safeCount = max(0, min(count, cards.count))
+        for _ in 0..<safeCount {
             if let card = deal() {
                 dealtCards.append(card)
             }

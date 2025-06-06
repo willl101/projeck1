@@ -1,0 +1,296 @@
+{
+  "source": "/Users/bytedance/trae/poker/PokerGame/Views/AIAnalysisView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "AI分析",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前手牌分析",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前牌型: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 88
+        }
+      },
+      {
+        "comment": "",
+        "key": "手牌",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "公共牌",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "胜率分析",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 104
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "胜率",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "对手数量:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 145
+        }
+      },
+      {
+        "comment": "",
+        "key": "游戏阶段:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 150
+        }
+      },
+      {
+        "comment": "",
+        "key": "胜率等级:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 158
+        }
+      },
+      {
+        "comment": "",
+        "key": "赔率分析",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 177
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 193
+        }
+      },
+      {
+        "comment": "",
+        "key": "底池赔率",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 185
+        }
+      },
+      {
+        "comment": "",
+        "key": "跟注成本 vs 底池大小",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 188
+        }
+      },
+      {
+        "comment": "",
+        "key": "底池大小:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 204
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 206
+        }
+      },
+      {
+        "comment": "",
+        "key": "跟注成本:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 211
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 214
+        }
+      },
+      {
+        "comment": "",
+        "key": "盈亏平衡点:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 221
+        }
+      },
+      {
+        "comment": "",
+        "key": "胜率超过赔率，建议跟注",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 233
+        }
+      },
+      {
+        "comment": "",
+        "key": "胜率低于赔率，建议弃牌",
+        "location": {
+          "startingColumn": 84,
+          "startingLine": 233
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI智能建议",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 250
+        }
+      },
+      {
+        "comment": "",
+        "key": "正在分析中...",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 290
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 274
+        }
+      },
+      {
+        "comment": "",
+        "key": "推荐行动: %@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 263
+        }
+      },
+      {
+        "comment": "",
+        "key": "置信度: %@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 267
+        }
+      },
+      {
+        "comment": "",
+        "key": "手牌强度分析",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 303
+        }
+      },
+      {
+        "comment": "",
+        "key": "改进可能性",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 332
+        }
+      },
+      {
+        "comment": "",
+        "key": "还有 %lld 张公共牌未发，手牌仍有改进空间",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 338
+        }
+      },
+      {
+        "comment": "",
+        "key": "当前牌型:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 314
+        }
+      },
+      {
+        "comment": "",
+        "key": "开始新手牌",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 375
+        }
+      },
+      {
+        "comment": "",
+        "key": "分析中...",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 364
+        }
+      },
+      {
+        "comment": "",
+        "key": "重新分析",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 364
+        }
+      }
+    ]
+  },
+  "version": 1
+}
